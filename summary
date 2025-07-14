@@ -2,6 +2,6 @@ Deploy the AnsibleAuditRole IAM role in each AWS account you want to monitor, an
 
 On your Ansible control node, configure dynamic inventory using inventory_accounts.yml to fetch EC2 instances from all accounts via assumed roles.
 
-Run the Ansible playbook fetch_disk_report.yml — it will use AWS SSM to execute df -h on each instance and fetch disk usage data.
+Run the Ansible playbook fetchdiskreport.yml — it will use AWS SSM to execute df -h on each instance and fetch disk usage data.
 
 The data is fetched to your local machine, stored in individual files, and automatically combined into aggregated_disk_report.csv.
