@@ -1,0 +1,18 @@
+---
+- name: Collect Disk Usage from All EC2s
+  hosts: tag_Monitoring_Enabled
+  gather_facts: no
+  roles:
+    - disk_monitor
+
+- name: Aggregate all reports
+  hosts: localhost
+  tasks:
+    - name: Fetch all individual reports
+      fetch:
+        src: "/tmp/disk_report_{{ inventory_hostname }}.txt"
+        dest: "./reports/"
+        flat: yes
+
+    - name: Combine reports
+      shell: cat ./reports/*.txt > ./aggregated_disk_report.csv
