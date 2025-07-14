@@ -1,0 +1,9 @@
+---
+- name: Check disk usage
+  shell: df -h --output=target,pcent | tail -n +2
+  register: disk_usage
+
+- name: Save disk usage to local file
+  copy:
+    content: "{{ inventory_hostname }} - {{ disk_usage.stdout_lines | join(', ') }}"
+    dest: "/tmp/disk_report_{{ inventory_hostname }}.txt"
