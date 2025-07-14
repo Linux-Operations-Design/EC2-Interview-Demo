@@ -3,7 +3,7 @@ IAM ROLES AND PERMISSIONS
 IAM ROLE: `AnsibleAuditRole` (Create in Each Target Account)
 
 #### Trust Policy:
-```json
+
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -16,10 +16,10 @@ IAM ROLE: `AnsibleAuditRole` (Create in Each Target Account)
     }
   ]
 }
-```
+
 
 #### Permissions Policy:
-```json
+
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -36,4 +36,3 @@ IAM ROLE: `AnsibleAuditRole` (Create in Each Target Account)
     }
   ]
 }
-```
